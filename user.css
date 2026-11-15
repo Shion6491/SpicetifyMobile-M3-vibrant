@@ -1,0 +1,949 @@
+/* ============================================================
+   M3-Vibrant - Theme created by Kenzx (https://github.com/luoshenshi)
+   ============================================================ */
+
+:root {
+  /* ---------- Shape scale ---------- */
+  --m3-radius-xs: 8px;
+  --m3-radius-small: 12px;
+  --m3-radius-medium: 16px;
+  --m3-radius-large: 24px;
+  --m3-radius-extra-large: 32px;
+  --m3-radius-pill: 9999px;
+
+  /* ---------- Elevation ---------- */
+  --m3-elev-0: none;
+  --m3-elev-1: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.06);
+  --m3-elev-2: 0 3px 8px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
+  --m3-elev-3: 0 8px 20px rgba(0, 0, 0, 0.14), 0 3px 6px rgba(0, 0, 0, 0.08);
+  --m3-elev-4: 0 14px 32px rgba(0, 0, 0, 0.18), 0 4px 10px rgba(0, 0, 0, 0.1);
+
+  /* ---------- Surface tint overlays ---------- */
+  --m3-surface: var(--spice-main);
+  --m3-surface-container-low: rgba(var(--spice-rgb-main), 1);
+  --m3-surface-container: rgba(var(--spice-rgb-card), 0.55);
+  --m3-surface-container-high: rgba(var(--spice-rgb-card), 0.85);
+  --m3-surface-container-highest: var(--spice-card);
+  --m3-outline: rgba(var(--spice-rgb-text), 0.12);
+  --m3-outline-variant: rgba(var(--spice-rgb-text), 0.06);
+
+  /* ---------- State-layer opacities ---------- */
+  --m3-state-hover: 0.08;
+  --m3-state-focus: 0.1;
+  --m3-state-press: 0.12;
+
+  /* ---------- Motion ---------- */
+  --m3-easing: cubic-bezier(0.2, 0, 0, 1);
+  --m3-easing-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --m3-easing-emphasized: cubic-bezier(0.3, 0, 0, 1);
+  --m3-duration-short: 150ms;
+  --m3-duration-medium: 250ms;
+  --m3-duration-long: 400ms;
+
+  /* ---------- Layout ---------- */
+  --playbar-height: 104px;
+  --playbar-margin: 16px;
+  --app-gap: 12px;
+}
+
+/* GLOBAL TYPE SCALE */
+
+.encore-dark-theme {
+  --background-base: var(--spice-sidebar);
+  --background-highlight: var(--spice-highlight);
+  --background-press: var(--spice-press);
+  --background-elevated-base: var(--spice-card);
+  --background-elevated-highlight: var(--spice-selected-row);
+  --background-elevated-press: var(--spice-button-active);
+  --background-tinted-base: var(--spice-tint-base);
+  --background-tinted-highlight: var(--spice-tint-highlight);
+  --background-tinted-press: var(--spice-tint-press);
+
+  --text-base: var(--spice-text);
+  --text-subdued: var(--spice-subtext);
+  --text-bright-accent: var(--spice-highlight);
+  --text-negative: var(--spice-notification-error);
+  --text-warning: var(--spice-warning);
+  --text-positive: var(--spice-positive);
+  --text-announcement: var(--spice-announcement);
+
+  --essential-base: var(--spice-player-icon);
+  --essential-subdued: var(--spice-essential-subdued);
+  --essential-bright-accent: var(--spice-highlight);
+  --essential-negative: var(--spice-notification-error);
+  --essential-warning: var(--spice-warning);
+  --essential-positive: var(--spice-positive);
+  --essential-announcement: var(--spice-announcement);
+
+  --decorative-base: var(--spice-decorative);
+  --decorative-subdued: var(--spice-decorative-subdued);
+}
+
+.encore-dark-theme .encore-bright-accent-set {
+  color-scheme: light;
+
+  --background-base: var(--spice-sidebar);
+  --background-highlight: var(--spice-highlight);
+  --background-press: var(--spice-press);
+  --background-elevated-base: var(--spice-card);
+  --background-elevated-highlight: var(--spice-selected-row);
+  --background-elevated-press: var(--spice-button-active);
+  --background-tinted-base: var(--spice-tint-base);
+  --background-tinted-highlight: var(--spice-tint-highlight);
+  --background-tinted-press: var(--spice-tint-press);
+
+  --text-base: var(--spice-main);
+  --text-subdued: var(--spice-main);
+  --text-bright-accent: var(--spice-highlight);
+  --text-negative: var(--spice-main);
+  --text-warning: var(--spice-main);
+  --text-positive: var(--spice-main);
+  --text-announcement: var(--spice-main);
+
+  --essential-base: var(--spice-main);
+  --essential-subdued: var(--spice-main);
+  --essential-bright-accent: var(--spice-main);
+  --essential-negative: var(--spice-main);
+  --essential-warning: var(--spice-main);
+  --essential-positive: var(--spice-main);
+  --essential-announcement: var(--spice-main);
+
+  --decorative-base: var(--spice-main);
+  --decorative-subdued: var(--spice-highlight);
+}
+
+svg {
+  fill: var(--spice-player-icon) !important;
+  height: var(
+    --encore-icon-height,
+    var(--encore-graphic-size-decorative-base)
+  ) !important;
+  width: var(
+    --encore-icon-width,
+    var(--encore-graphic-size-decorative-base)
+  ) !important;
+}
+
+.encore-internal-color-text-subdued {
+  color: var(--spice-player-icon) !important;
+}
+
+.encore-internal-color-text-base {
+  color: var(--spice-player-icon) !important;
+}
+
+.main-trackList-trackListRow.q8suB2R_XkoUyIeZ,
+.main-trackList-trackListRow.q8suB2R_XkoUyIeZ:hover {
+  background-color: var(--spice-selected-row) !important;
+}
+
+.main-view-container,
+.Root__nav-bar,
+.main-nowPlayingBar-container {
+  font-feature-settings: "cv11", "ss01" !important;
+  letter-spacing: 0.1px !important;
+}
+
+.main-entityHeader-title {
+  font-weight: 700 !important;
+  letter-spacing: -0.5px !important;
+}
+.main-trackList-rowTitle {
+  font-weight: 500 !important;
+}
+.main-trackList-rowSubTitle,
+.main-cardSubtitle-cardSubtitle {
+  opacity: 0.7;
+  font-weight: 400 !important;
+}
+
+/* GLOBAL APP LAYOUT */
+.Root__top-container {
+  background-color: var(--spice-shadow) !important;
+  gap: var(--app-gap) !important;
+  padding: var(--app-gap) !important;
+}
+
+.Root__globalNav {
+  border-radius: var(--m3-radius-large) !important;
+  margin-bottom: 2px !important;
+
+  box-shadow: var(--m3-elev-1) !important;
+  border: 1px solid var(--m3-outline-variant) !important;
+  transition: box-shadow var(--m3-duration-medium) var(--m3-easing-standard) !important;
+}
+
+.main-home-filterChipsSection {
+  background: var(--background-elevated-base) !important;
+}
+
+.main-home-filterChipsSection.fzMaM8folMIckYG2:after {
+  background: transparent !important;
+}
+
+.Root__nav-bar,
+.Root__main-view,
+.Root__right-sidebar,
+.UrfDp0_mKGL9hkfh9g_R {
+  background-color: var(--m3-surface) !important;
+  border-radius: var(--m3-radius-large) !important;
+  overflow: hidden !important;
+  box-shadow: var(--m3-elev-1) !important;
+  border: 1px solid var(--m3-outline-variant) !important;
+  transition: box-shadow var(--m3-duration-medium) var(--m3-easing-standard) !important;
+}
+
+.main-topBar-background,
+.gaELPQ269mY6yQwB,
+.main-topBar-overlay {
+  background: var(--m3-surface-container-low) !important;
+  transition: background-color var(--m3-duration-medium) ease !important;
+}
+
+.main-topBar-container {
+  padding: 16px 24px !important;
+}
+
+.view-homeShortcutsGrid-draggable:hover {
+  background-color: var(--spice-selected-row) !important;
+}
+
+.x-searchInput-searchInputInput {
+  background-color: rgba(var(--spice-rgb-button-disabled), 0.28) !important;
+  border-radius: var(--m3-radius-pill) !important;
+  height: 48px !important;
+  padding-left: 48px !important;
+  font-size: 16px !important;
+  border: 1px solid transparent !important;
+  transition:
+    background-color var(--m3-duration-short) var(--m3-easing),
+    box-shadow var(--m3-duration-short) var(--m3-easing),
+    border-color var(--m3-duration-short) var(--m3-easing) !important;
+}
+.x-searchInput-searchInputInput:hover {
+  background-color: rgba(var(--spice-rgb-button-disabled), 0.42) !important;
+}
+.x-searchInput-searchInputInput:focus {
+  background-color: rgba(var(--spice-rgb-button-disabled), 0.5) !important;
+  box-shadow: 0 0 0 2px var(--spice-button) !important;
+  border-color: var(--spice-button) !important;
+}
+
+.search-searchCategory-categoryGrid {
+  --start-gradient-color: black;
+  --end-gradient-color: black;
+  mask-size: 0 0 !important;
+  mask-composite: initial !important;
+  mask-image: none !important;
+}
+
+.CsidsUzBet0_Mp5i:before {
+  background: transparent !important;
+  inset-inline-start: 0 !important;
+}
+
+.CsidsUzBet0_Mp5i:after {
+  animation-direction: reverse !important;
+  animation-range: calc(100% - var(--scrollAnimationRangeEnd))
+    calc(100% - var(--scrollAnimationRangeStart)) !important;
+  background: transparent !important;
+  inset-inline-end: 0 !important;
+}
+
+.e-10750-legacy-box:hover {
+  background: transparent !important;
+}
+
+.search-searchCategory-carouselButton {
+  background: var(--spice-player) !important;
+}
+
+.search-searchCategory-carouselButton:hover {
+  background: var(--spice-card) !important;
+}
+
+.view-homeShortcutsGrid-shortcut .view-homeShortcutsGrid-imageWrapper {
+  box-shadow: none !important;
+}
+
+/* the play button for the top suggested playlists and albums */
+.view-homeShortcutsGrid-shortcut
+  .view-homeShortcutsGrid-PlayButtonContainer
+  .view-homeShortcutsGrid-playButton {
+  opacity: 0;
+  box-shadow: 0px 0px 7px 0.2px rgba(var(--spice-rgb-player-icon), 0.1) !important;
+}
+
+/* CONTROLS (BOTTOM SECTION) */
+.Root__now-playing-bar {
+  background: transparent !important;
+  margin-top: 2px !important;
+  padding: 0px !important;
+}
+
+.main-nowPlayingBar-container {
+  background-color: var(--m3-surface-container-highest) !important;
+  border-radius: var(--m3-radius-extra-large) !important;
+  height: var(--playbar-height) !important;
+  padding: 0 !important;
+  box-shadow: var(--m3-elev-3) !important;
+  border: 1px solid var(--m3-outline-variant) !important;
+  overflow: hidden !important;
+  transition: box-shadow var(--m3-duration-medium) var(--m3-easing-standard) !important;
+}
+.main-nowPlayingBar-container:hover {
+  box-shadow: var(--m3-elev-4) !important;
+}
+
+.main-nowPlayingBar-nowPlayingBar {
+  display: grid !important;
+  grid-template-columns: 0.6fr 1.6fr 0.6fr !important;
+  align-items: center !important;
+  height: 100% !important;
+  gap: 16px !important;
+  padding: 0 24px !important;
+}
+
+.main-nowPlayingBar-left,
+.main-nowPlayingBar-center,
+.main-nowPlayingBar-right {
+  width: 100% !important;
+  max-width: none !important;
+  min-width: 0 !important;
+}
+
+.main-nowPlayingBar-right {
+  display: flex !important;
+  justify-content: flex-end !important;
+  align-items: center !important;
+}
+
+.main-nowPlayingBar-extraControls {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+  gap: 4px !important;
+}
+
+.main-nowPlayingBar-left .cover-art-image {
+  border-radius: var(--m3-radius-medium) !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15) !important;
+  transition: transform var(--m3-duration-medium) var(--m3-easing) !important;
+}
+.main-nowPlayingBar-left .cover-art-image:hover {
+  transform: scale(1.04) !important;
+}
+
+#main
+  > div
+  > div.Root__top-container
+  > div.Root__now-playing-bar
+  > aside
+  > div
+  > div.main-nowPlayingBar-center
+  > div
+  > div.player-controls__buttons
+  > button
+  > span {
+  background-color: var(--spice-tab-active) !important;
+}
+
+/* FLOATING VOLUME SLIDER */
+.main-nowPlayingBar-volumeBar {
+  position: relative !important;
+}
+
+.PRydOIAjJUGRdKm8piwY {
+  flex: 0 1 auto !important;
+}
+
+.main-nowPlayingBar-volumeBar::after {
+  content: "" !important;
+  position: absolute !important;
+  left: 10px !important;
+  top: -10px !important;
+  width: 12px !important;
+  height: 38px !important;
+}
+
+.volume-bar__slider-container {
+  position: fixed !important;
+  background-color: var(--m3-surface-container-high) !important;
+  backdrop-filter: blur(16px) saturate(160%) !important;
+  border-radius: var(--m3-radius-pill) !important;
+  box-shadow: var(--m3-elev-4) !important;
+  border: 1px solid var(--m3-outline-variant) !important;
+  padding: 8px 16px !important;
+  width: 140px !important;
+
+  opacity: 0;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  transform: translate(-50px, -34px) scale(0.85) !important;
+  transform-origin: bottom left !important;
+
+  transition:
+    opacity var(--m3-duration-short) var(--m3-easing),
+    transform var(--m3-duration-short) var(--m3-easing-emphasized),
+    visibility 0s linear var(--m3-duration-short) !important;
+
+  z-index: 1000 !important;
+}
+
+.main-nowPlayingBar-volumeBar:hover .volume-bar__slider-container,
+.volume-bar__slider-container:hover {
+  opacity: 1;
+  visibility: visible !important;
+  pointer-events: auto !important;
+  transform: translate(-50px, -40px) scale(1) !important;
+
+  transition:
+    opacity var(--m3-duration-short) var(--m3-easing),
+    transform var(--m3-duration-short) var(--m3-easing-emphasized),
+    visibility 0s linear 0s !important;
+}
+
+.volume-bar {
+  margin: 0 !important;
+}
+
+/* "PLAYING ON" CONNECT BAR */
+.main-connectBar-connectBar {
+  border-radius: var(--m3-radius-xs) !important;
+  flex-direction: row !important;
+  justify-content: center !important;
+  align-items: center !important;
+  height: 24px !important;
+  padding: 8px 12px !important;
+  display: flex !important;
+  position: relative !important;
+  background-color: rgba(var(--spice-rgb-button), 0.1) !important;
+  color: var(--spice-button) !important;
+  font-weight: 500 !important;
+}
+
+.encore-bright-accent-set {
+  justify-content: center !important;
+}
+
+.encore-text-body-small-bold {
+  color: var(--spice-subtext);
+  font-weight: 600;
+}
+
+.main-connectBar-icon {
+  max-width: 14px;
+  max-height: 14px;
+}
+/* RESPONSIVE DESIGN */
+@media (max-width: 950px) {
+  .main-nowPlayingBar-nowPlayingBar {
+    padding: 0 16px !important;
+    grid-template-columns: 0.7fr 1.3fr 1fr !important;
+    gap: 8px !important;
+  }
+}
+
+@media (max-width: 750px) {
+  .main-nowPlayingBar-nowPlayingBar {
+    grid-template-columns: 1.2fr 1fr 0.8fr !important;
+  }
+  :root {
+    --playbar-height: 88px;
+  }
+}
+
+/* CONTROLS AND BUTTONS */
+
+.main-playButton-PlayButton .e-10860-button-primary__inner {
+  background-color: var(--spice-play-button) !important;
+  border-radius: 100% !important;
+  transition: background-color var(--m3-duration-medium) ease !important;
+}
+
+.e-10860-button-primary__inner:hover {
+  background-color: var(--spice-play-button-hover) !important;
+}
+
+.main-playPauseButton-button {
+  background-color: var(--spice-button) !important;
+  color: var(--spice-main) !important;
+  width: 56px !important;
+  height: 56px !important;
+  border-radius: 20px !important;
+  transition:
+    transform var(--m3-duration-short) var(--m3-easing-emphasized),
+    border-radius var(--m3-duration-short) var(--m3-easing-emphasized),
+    box-shadow var(--m3-duration-short) ease !important;
+  box-shadow: var(--m3-elev-2) !important;
+}
+.main-playPauseButton-button:hover {
+  transform: scale(1.06) !important;
+  border-radius: var(--m3-radius-pill) !important;
+  box-shadow: var(--m3-elev-3) !important;
+}
+
+.main-nowPlayingView-contextItemInfo:before {
+  background: transparent !important;
+}
+.main-nowPlayingView-section {
+  background: var(--spice-card) !important;
+}
+.jHqD4CkJSTwpZihD {
+  background: var(--spice-card) !important;
+  padding: 12px !important;
+  border-radius: var(--section-border-radius);
+}
+
+.JO5DuTPjVVoBxIKN {
+  background-color: #00000060 !important;
+}
+
+.UaFGUZb384McvxOx {
+  background-color: var(--spice-highlight) !important;
+  color: var(--background-elevated-base) !important;
+}
+.EU1ylDKh7s2oMU0g {
+  background-color: transparent !important;
+}
+.VwcQJ4Zsf0JKD3Ls {
+  background-color: transparent !important;
+}
+.main-playPauseButton-button:active {
+  transform: scale(0.96) !important;
+}
+.main-playPauseButton-button svg {
+  height: 24px !important;
+  width: 24px !important;
+}
+
+.playback-progressbar-container {
+  margin-top: 8px !important;
+}
+.progress-bar {
+  --fg-color: var(--spice-button) !important;
+}
+.progress-bar__bg,
+.progress-bar__fg,
+.progress-bar__fg_wrapper {
+  height: 6px !important;
+  border-radius: var(--m3-radius-pill) !important;
+  transition: height var(--m3-duration-short) ease !important;
+}
+.playback-progressbar-container:hover .progress-bar__bg,
+.playback-progressbar-container:hover .progress-bar__fg {
+  height: 8px !important;
+}
+
+.control-button,
+.main-nowPlayingBar-right button,
+.main-trackList-rowPlayPauseButton {
+  border-radius: var(--m3-radius-pill) !important;
+  transition:
+    background-color var(--m3-duration-short) ease,
+    transform var(--m3-duration-short) var(--m3-easing) !important;
+}
+.control-button:hover,
+.main-nowPlayingBar-right button:hover {
+  background-color: rgba(
+    var(--spice-rgb-text),
+    var(--m3-state-hover)
+  ) !important;
+  transform: scale(1.1) !important;
+}
+.control-button:active,
+.main-nowPlayingBar-right button:active {
+  background-color: rgba(
+    var(--spice-rgb-text),
+    var(--m3-state-press)
+  ) !important;
+  transform: scale(0.94) !important;
+}
+
+button[class*="filter"],
+.x-filterBox-filterButton {
+  border-radius: var(--m3-radius-pill) !important;
+  background-color: var(--m3-surface-container) !important;
+  border: 1px solid var(--m3-outline-variant) !important;
+  transition:
+    background-color var(--m3-duration-short) ease,
+    box-shadow var(--m3-duration-short) ease !important;
+}
+button[class*="filter"]:hover,
+.x-filterBox-filterButton:hover {
+  background-color: var(--m3-surface-container-high) !important;
+  box-shadow: var(--m3-elev-1) !important;
+}
+
+/* CARDS AND MAIN BODY STYLING */
+.main-card-card {
+  border-radius: var(--m3-radius-large) !important;
+  background-color: var(--m3-surface-container-low) !important;
+  padding: 12px !important;
+  border: 1px solid transparent !important;
+  transition:
+    transform var(--m3-duration-medium) var(--m3-easing-emphasized),
+    background-color var(--m3-duration-medium) ease,
+    box-shadow var(--m3-duration-medium) ease,
+    border-color var(--m3-duration-medium) ease !important;
+}
+.main-card-card:hover {
+  background-color: var(--m3-surface-container) !important;
+  border-color: var(--m3-outline-variant) !important;
+  box-shadow: var(--m3-elev-2) !important;
+  transform: translateY(-6px) !important;
+}
+
+.main-card-cardContainer:hover .main-card-cardTitle * {
+  color: var(--spice-card-text-hover) !important;
+}
+
+.main-card-card:active {
+  transform: translateY(-2px) scale(0.99) !important;
+}
+
+.main-card-PlayButtonContainer {
+  transform: translateY(8px) !important;
+  opacity: 0;
+  transition:
+    transform var(--m3-duration-medium) var(--m3-easing-emphasized),
+    opacity var(--m3-duration-short) ease !important;
+}
+.main-card-card:hover .main-card-PlayButtonContainer {
+  transform: translateY(0) !important;
+  opacity: 1;
+}
+
+.main-entityHeader-backgroundColor,
+.main-actionBarBackground-background {
+  background: transparent !important;
+}
+
+.main-cardImage-image,
+.main-cardImage-imageWrapper,
+.cover-art-image,
+.main-navBar-navBar img,
+.main-entityHeader-imagePlaceholder > div {
+  border-radius: var(--m3-radius-medium) !important;
+}
+
+.main-cardImage-circular,
+.main-entityHeader-circle {
+  border-radius: var(--m3-radius-pill) !important;
+}
+
+.main-entityHeader-shadow {
+  box-shadow: var(--m3-elev-3) !important;
+}
+
+.maeq6ts1ds8bvFaI {
+  background: var(--spice-card) !important;
+}
+
+/* SIDEBAR AND LIST ITEMS */
+.main-navBar-navBarItem .Active {
+  background-color: rgba(var(--spice-rgb-button), 0.15) !important;
+  border-radius: var(--m3-radius-pill) !important;
+  color: var(--spice-button) !important;
+  font-weight: 600 !important;
+}
+.main-navBar-navBarItem:hover {
+  background-color: rgba(
+    var(--spice-rgb-text),
+    var(--m3-state-hover)
+  ) !important;
+  border-radius: var(--m3-radius-pill) !important;
+}
+
+.os-scrollbar-handle {
+  background: rgba(var(--spice-rgb-text), 0.18) !important;
+  border-radius: var(--m3-radius-pill) !important;
+  transition: background-color var(--m3-duration-short) ease !important;
+}
+.os-scrollbar-handle:hover {
+  background: rgba(var(--spice-rgb-text), 0.38) !important;
+}
+
+/* Eqlizer Color Change */
+
+.main-trackList-rowMarker img {
+  filter: grayscale(1) brightness(0.8) !important;
+}
+
+.bUVkyYuHPJ19V664vzfA {
+  filter: grayscale(1) brightness(0.8) !important;
+}
+
+
+
+.main-trackList-trackListRow {
+  border-radius: var(--m3-radius-medium) !important;
+  transition: background-color var(--m3-duration-short) ease !important;
+}
+.main-trackList-trackListRow:hover {
+  background-color: rgba(
+    var(--spice-rgb-text),
+    var(--m3-state-hover)
+  ) !important;
+}
+.main-trackList-trackListRow[aria-selected="true"] {
+  background-color: rgba(var(--spice-rgb-button), 0.12) !important;
+}
+
+.main-contextMenu-menu,
+[class*="ContextMenu"] {
+  background-color: var(--m3-surface-container-high) !important;
+  border-radius: var(--m3-radius-medium) !important;
+  box-shadow: var(--m3-elev-3) !important;
+  border: 1px solid var(--m3-outline-variant) !important;
+  padding: 8px !important;
+}
+.main-contextMenu-menuItem {
+  border-radius: var(--m3-radius-small) !important;
+  transition: background-color var(--m3-duration-short) ease !important;
+}
+.main-contextMenu-menuItem:hover {
+  background-color: rgba(
+    var(--spice-rgb-text),
+    var(--m3-state-hover)
+  ) !important;
+}
+
+[class*="GenericModal"] .main-contextMenu-menu,
+.Toastify__toast {
+  border-radius: var(--m3-radius-medium) !important;
+  box-shadow: var(--m3-elev-4) !important;
+}
+
+.fuq9616CQ8Fhz6n6.yiy_EezkGycfPvS3
+  .main-nowPlayingView-canvasVisualEnhancement:before {
+  background: linear-gradient(
+    #12121200 0%,
+    #12121200 30% 55%,
+    #12121200 72%,
+    #00000000 90%
+  ) !important;
+}
+
+.main-nowPlayingView-canvasVisualEnhancement:before {
+  background: linear-gradient(
+    #121212d9 0%,
+    #12121200 30% 80%,
+    #121212cc 93.25%,
+    #00000000 100%
+  ) !important;
+}
+
+.main-nowPlayingView-canvasVisualEnhancement:after {
+  background: linear-gradient(
+    #121212a1 0%,
+    #12121287 30% 70%,
+    #00000000 95%
+  ) !important;
+}
+
+.pHNOePN5RT09utW9 .g3QSV3tq49ScV2jX {
+  box-shadow: 0px 6px 7px 0.2px rgba(var(--spice-rgb-player-icon), 0.1) !important;
+}
+
+#history-tab {
+  border-radius: var(--m3-radius-small) !important;
+}
+
+#history-tab:hover {
+  background-color: rgba(
+    var(--spice-rgb-text),
+    var(--m3-state-hover)
+  ) !important;
+}
+
+#queue-tab {
+  border-radius: var(--m3-radius-small) !important;
+}
+
+#queue-tab:hover {
+  background-color: rgba(
+    var(--spice-rgb-text),
+    var(--m3-state-hover)
+  ) !important;
+}
+
+#history-panel > ul > li > div {
+  --box-hover-background-color: rgba(
+    var(--spice-rgb-text),
+    var(--m3-state-hover)
+  ) !important;
+}
+
+#queue-panel > div > div > ul > div > div > li > div {
+  --box-hover-background-color: rgba(
+    var(--spice-rgb-text),
+    var(--m3-state-hover)
+  ) !important;
+}
+
+.ngY378uYekSqU8ij .znTd53DrNIcJnJvv {
+  background-color: rgba(0, 0, 0, 0.2) !important;
+}
+
+.BEeVmHj340c0PYHe {
+  box-shadow: 0px 6px 7px 0.2px rgba(var(--spice-rgb-player-icon), 0.1) !important;
+}
+
+#Desktop_PanelContainer_Id
+  > div
+  > div.main-nowPlayingView-mainContainer.l5xRM2jngMo7LJO4.main-actionBar-ActionBarContainer
+  > div
+  > div
+  > div
+  > div.main-nowPlayingView-section.main-nowPlayingView-credits
+  > div
+  > div.e-10810-legacy-box.e-10810-legacy-box--naked.e-10810-legacy-box--interactive.e-10810-legacy-box--padding-inline-start-custom.e-10810-legacy-box--padding-inline-end-custom.e-10810-legacy-box--padding-block-start-custom.e-10810-legacy-box--padding-block-end-custom.e-10810-legacy-box--hover-custom.e-10810-legacy-box--min-size.e-10810-legacy-list-row.main-nowPlayingView-creditsFirstGroup {
+  --box-hover-background-color: rgba(
+    var(--spice-rgb-text),
+    var(--m3-state-hover)
+  ) !important;
+}
+
+#Desktop_PanelContainer_Id
+  > div
+  > div.main-nowPlayingView-mainContainer.l5xRM2jngMo7LJO4.main-actionBar-ActionBarContainer
+  > div
+  > div
+  > div
+  > div.main-nowPlayingView-section.main-nowPlayingView-queue
+  > ul
+  > li
+  > div {
+  --box-hover-background-color: rgba(
+    var(--spice-rgb-text),
+    var(--m3-state-hover)
+  ) !important;
+}
+
+.h0PQ8sOpdOAqPvpi:hover {
+  background-color: rgba(
+    var(--spice-rgb-text),
+    var(--m3-state-hover)
+  ) !important;
+}
+
+.main-trackInfo-artists a:link,
+.main-trackInfo-artists a:visited {
+  color: var(--spice-subtext) !important;
+}
+
+.Z557o5iO1x0aSAXt:not(:hover):not(:focus-within) a {
+  color: var(--spice-subtext) !important;
+}
+
+.wskqaMF_9vIdCfEN {
+  color: var(--spice-subtext) !important;
+}
+
+.HFowbNOgNPgtZSE4 {
+  box-shadow: 0px 6px 7px 0.2px rgba(var(--spice-rgb-player-icon), 0.1) !important;
+}
+
+.e-10810-legacy-box--interactive.e-10810-legacy-box--contrasting:hover,
+.e-10810-legacy-box--interactive:hover:after {
+  background-color: rgba(
+    var(--spice-rgb-text),
+    var(--m3-state-hover)
+  ) !important;
+}
+
+.e-10810-legacy-box--tinted.e-10810-legacy-box--interactive:hover:after {
+  background-color: rgba(
+    var(--spice-rgb-text),
+    var(--m3-state-hover)
+  ) !important;
+}
+
+.e-10810-legacy-box--interactive {
+  --animation-speed: 100ms !important;
+  --animation-ease: 1s !important;
+  --bg-inset-change-press: -4px !important;
+}
+
+.x-entityImage-imageContainer {
+  box-shadow: none !important;
+}
+
+/* Library Styling */
+
+.LaH7CXkEWfXVT37wbc2Y {
+  display: none;
+}
+
+/* Liked Songs Styling */ 
+
+.M7ECcaA17LC8UqL2GKVD {
+  display: none !important;
+}
+
+/* Artist Styling */
+
+/* = Discography = */
+
+.P91StDUW8iiKx4vRlEpx {
+  padding: 32px !important;
+  border-radius: var(--m3-radius-large) !important;
+}
+.artist-artistDiscography-headerContainer {
+  padding: 24px !important;
+  align-items: center !important;
+  border-radius: var(--m3-radius-large) !important;
+}
+
+.artist-artistDiscography-topBar.artist-artistDiscography-topBarScrolled {
+  padding: 24px 12px !important;
+  box-shadow: 0px 6px 7px 0.2px rgba(var(--spice-rgb-player-icon), 0.1) !important;
+}
+
+.main-entityHeader-shadow {
+  border-radius: var(--m3-radius-large) !important;
+  box-shadow: 0px 0px 4px 1px rgba(var(--spice-rgb-player-icon), 0.2) !important;
+}
+
+/* VISUALIZER STYLING */
+
+.view-homeShortcutsGrid-equaliserImage,
+.POVCTaiu08g8SWXr {
+  filter: grayscale(1) !important;
+}
+
+/* REMOVING GRADIENTS */
+
+.dqwQhIudKoD98eWJzj5E {
+  display: none !important;
+}
+
+.yKCAvGVbd6TgspV2YaTf.p21x4R9OyvxWhr9old3h:after {
+  background-color: var(--spice-sidebar) !important;
+}
+
+.main-home-homeHeader {
+  display: none !important;
+}
+.playlist-playlist-actionBarBackground-background {
+  display: none !important;
+}
+
+/* ============================================================
+   Shion: background image (for the Android Spicetify patches)
+   The first raster background on a full-window selector becomes
+   the theme's background image. Replace background.jpg in this
+   repository to change it.
+   ============================================================ */
+.Root__main-view {
+  background-image: url("https://raw.githubusercontent.com/Shion6491/SpicetifyMobile-M3-vibrant/main/background.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.Root__top-container {
+  background-image: url("https://raw.githubusercontent.com/Shion6491/SpicetifyMobile-M3-vibrant/main/background.jpg");
+  background-size: cover;
+  background-position: center;
+}
