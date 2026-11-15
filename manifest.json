@@ -1,7 +1,7 @@
 {
   "name": "Shion Vibrant",
   "description": "M3-Vibrant color schemes merged with the Shion background-image theme. Made for the Android Spicetify patches (Morphe); also usable on desktop.",
-  "preview": "background.jpg",
+  "preview": "preview.jpg",
   "readme": "README.md",
   "usercss": "./user.css",
   "schemes": "./color.ini",
